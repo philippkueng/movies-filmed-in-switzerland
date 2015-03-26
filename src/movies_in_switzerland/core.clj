@@ -47,10 +47,14 @@
 (defn fetch-geo-data
   [location]
   "Fetch the location information from Yahoo"
-  (:Result (:results (:query
-                      (parse-string
-                       (:body (client/get (generate-url location)))
-                       true)))))
+  (-> location
+      generate-url
+      client/get
+      :body
+      (parse-string true)
+      :query
+      :results
+      :Result))
 
 
 ;; url encode the location data
