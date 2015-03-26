@@ -40,7 +40,8 @@
 (defn generate-url
   [location]
   "Given the location data generates the url to call"
-  (str "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text%3D%22"
+  (str "https://query.yahooapis.com/v1/public/yql?q="
+       "select%20*%20from%20geo.placefinder%20where%20text%3D%22"
        (url-encode location)
        "%22&format=json&callback="))
 
