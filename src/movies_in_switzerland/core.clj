@@ -10,6 +10,10 @@
   "Splits a line entry with a movie, year, optional series info and location"
   (remove #(= "" %)
           (str/split line #"[\)]?\t|\"[\s]?[\(]?|\)\s\{|\}")))
+(defn write-to-file! [file-name data]
+  (with-open [w (clojure.java.io/writer file-name)]
+    (binding [*out* w]
+      (clojure.pprint/write data))))
 
 ;; read the locations.list file and parse the lines
 (def raw-movie-lines
