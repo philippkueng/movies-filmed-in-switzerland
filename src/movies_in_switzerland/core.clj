@@ -56,6 +56,21 @@
       :Result))
 
 
+(defn enrich
+  []
+  "Enrich the data with latitude and longitude"
+  (->> raw-movie-lines
+       (map format-movie)
+       (map (fn [movie]
+              (merge movie
+                     (-> movie
+                         :location
+                         fetch-geo-data
+                         (select-keys [:statecode :city :uzip :county
+                                       :longitude :state :latitude :country
+                                       :countrycode])))))
+       (write-to-file! "movie-year-location.edn")))
+
 ;; url encode the location data
 #_(fetch-geo-data "Siebnen, Switzerland")
 
