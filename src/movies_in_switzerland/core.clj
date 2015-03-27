@@ -4,12 +4,6 @@
             [cheshire.core :refer :all]
             [cemerick.url :refer (url url-encode)]))
 
-;; read the locations.list file and count the lines
-(defn split-movie-location-line
-  [line]
-  "Splits a line entry with a movie, year, optional series info and location"
-  (remove #(= "" %)
-          (str/split line #"[\)]?\t|\"[\s]?[\(]?|\)\s\{|\}")))
 (defn write-to-file! [file-name data]
   (with-open [w (clojure.java.io/writer file-name)]
     (binding [*out* w]
