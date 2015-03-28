@@ -43,12 +43,18 @@
        (url-encode location)
        "%22&format=json&callback="))
 
+(defn ask-yql
+  [url]
+  (try
+    (client/get url)
+    (catch Exception e (ask-yql url))))
+
 (defn fetch-geo-data
   [location]
   "Fetch the location information from Yahoo"
   (-> location
       generate-url
-      client/get
+      ask-yql
       :body
       (parse-string true)
       :query
