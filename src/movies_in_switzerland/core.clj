@@ -19,8 +19,10 @@
 (defn split-movie-location-line
   [line]
   "Splits a line entry with a movie, year, optional series info and location"
-  (remove #(= "" %)
-          (str/split line #"[\)]?\t|\"[\s]?[\(]?|\)\s\{|\}")))
+  (next
+   (re-matches
+    #"([\"\d\w ]+)\((\d{4})\)[ ]+([\{[\w \d]+\(\#[\d\.]+\)\}]+)[\t]+(.*)"
+    line)))
 
 (defn format-movie
   [line]
