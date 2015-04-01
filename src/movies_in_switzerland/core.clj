@@ -21,7 +21,7 @@
   "Splits a line entry with a movie, year, optional series info and location"
   (next
    (re-matches
-    #"([\"\d\w ]+)\((\d{4})\)[ ]+([\{[\w \d]+\(\#[\d\.]+\)\}]+)[\t]+(.*)"
+    #"[\"]?([\d\w ]+)[\"]?[ ]?\((\d{4})\)([\{[\w \d]+\(\#[\d\.]+\)\}]?)[\t]+(.*)"
     line)))
 
 (defn format-movie
@@ -32,8 +32,11 @@
             :year (nth m 1)}
            (cond
             (= (count m) 3) {:location (nth m 2)}
-            (= (count m) 4) {:location (nth m 3)
-                             :series   (nth m 2)}))))
+            (= (count m) 4) (merge {:location (nth m 3)}
+                                   (let [series (nth m 2)]
+                                     (if (= series "")
+                                       {}
+                                       {:series series})))))))
 
 
 ;; make a location request against yahoo's yql service
