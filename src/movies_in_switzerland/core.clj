@@ -21,7 +21,7 @@
   "Splits a line entry with a movie, year, optional series info and location"
   (next
    (re-matches
-    #"[\"]?([\d\w ]+)[\"]?[ ]?\((\d{4})\)([\{[\w \d]+\(\#[\d\.]+\)\}]?)[\t]+(.*)"
+    #"[\"]?([\d\w ]+?)[\"]?[ ]?\((\d{4})\)([\{[\w \d]+\(\#[\d\.]+\)\}]?)[\t]+(.*)"
     line)))
 
 (defn format-movie
