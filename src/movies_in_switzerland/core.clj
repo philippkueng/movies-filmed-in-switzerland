@@ -1,5 +1,6 @@
 (ns movies-in-switzerland.core
   (:require [clojure.string :as str]
+            [instaparse.core :as insta]
             [clj-http.client :as client]
             [cheshire.core :refer :all]
             [cemerick.url :refer (url url-encode)]))
