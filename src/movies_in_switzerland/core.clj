@@ -37,16 +37,7 @@
 (defn format-movie
   [line]
   "Turns a line entry into a map"
-  (let [m (split-movie-location-line line)]
-    (merge {:name (nth m 0)
-            :year (nth m 1)}
-           (cond
-            (= (count m) 3) {:location (nth m 2)}
-            (= (count m) 4) (merge {:location (nth m 3)}
-                                   (let [series (nth m 2)]
-                                     (if (= series "")
-                                       {}
-                                       {:series series})))))))
+  (into {} (rest (movie-parser line))))
 
 
 ;; make a location request against yahoo's yql service
