@@ -90,5 +90,3 @@
 #_(str/split (first raw-movie-lines) #"\t")
 #_ (first raw-movie-lines)
 
-(pr-str (map split-movie-location-line raw-movie-lines))
-
