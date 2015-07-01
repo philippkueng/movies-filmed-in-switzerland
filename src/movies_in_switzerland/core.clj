@@ -5,19 +5,19 @@
             [cheshire.core :refer :all]
             [cemerick.url :refer (url url-encode)]))
 
-(defn write-to-file! [file-name data]
+#_(defn write-to-file! [file-name data]
   (with-open [w (clojure.java.io/writer file-name)]
     (binding [*out* w]
       (clojure.pprint/write data))))
 
 ;; read the locations.list file and parse the lines
-(def raw-movie-lines
+#_(def raw-movie-lines
   (with-open [rdr (clojure.java.io/reader
                    "locations_list_switzerland_without_headers")]
     (doall
      (take 5 (line-seq rdr)))))
 
-(defn split-movie-location-line
+#_(defn split-movie-location-line
   [line]
   "Splits a line entry with a movie, year, optional series info and location"
   (next
@@ -68,7 +68,7 @@
       :Result))
 
 
-(defn enrich
+#_(defn enrich
   []
   "Enrich the data with latitude and longitude"
   (->> raw-movie-lines
