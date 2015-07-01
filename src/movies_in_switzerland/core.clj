@@ -28,7 +28,7 @@
 (def movie-parser
   (insta/parser
    "line = name year series? location?
-    name = <'\"'?>#'[a-zA-Z0-9: ]+'<'\"'?><' '+?>
+    name = <'\"'?>#'(\\s?[a-zA-Z0-9:]+)+'<'\"'?><#'\\s+'?>
     year = <'('>#'[0-9]{4}'<')'><#'\\s+'?>
     series = <'{'>#'[a-zA-Z0-9-:()#. ]+'<'}'><#'\\s+'?>
     location = #'[a-zA-Z0-9, ]+'"
