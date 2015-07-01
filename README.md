@@ -1,6 +1,6 @@
 # Movies filmed in Switzerland
 
-[![Circle CI](https://circleci.com/gh/philippkueng/movies-in-switzerland/tree/master.svg?style=svg)](https://circleci.com/gh/philippkueng/movies-in-switzerland/tree/master)
+[![Circle CI](https://circleci.com/gh/philippkueng/movies-filmed-in-switzerland.svg?style=svg)](https://circleci.com/gh/philippkueng/movies-filmed-in-switzerland)
 
 ## Data Source
 
