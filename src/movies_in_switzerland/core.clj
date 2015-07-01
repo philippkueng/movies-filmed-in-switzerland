@@ -25,6 +25,12 @@
     #"[\"]?([\d\w ]+?)[\"]?[ ]?\((\d{4})\)([\{[\w \d]+\(\#[\d\.]+\)\}]?)[\t]+(.*)"
     line)))
 
+(def movie-parser
+  (insta/parser
+   "line = name year location
+    name = <'\"'?>#'[a-zA-Z0-9: ]+'<'\"'?><' '+?>
+    year = <'('>#'[0-9]{4}'<')'><#'\\s+'?>
+    location = #'[a-zA-Z0-9, ]+'"))
 (defn format-movie
   [line]
   "Turns a line entry into a map"
