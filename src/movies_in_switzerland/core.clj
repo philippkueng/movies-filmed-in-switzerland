@@ -27,10 +27,11 @@
 
 (def movie-parser
   (insta/parser
-   "line = name year series? location?
+   "line = name year series? type? location?
     name = <'\"'?>#'(\\s?[a-zA-Z0-9:]+)+'<'\"'?><#'\\s+'?>
     year = <'('>#'[0-9]{4}'<')'><#'\\s+'?>
     series = <'{'>#'[a-zA-Z0-9-:()#. ]+'<'}'><#'\\s+'?>
+    type = <'('>'V'<')'><#'\\s+'?>
     location = #'[a-zA-Z0-9, ]+'"
    :output-format :hiccup))
 
