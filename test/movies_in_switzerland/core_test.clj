@@ -24,3 +24,11 @@
             :location "Montreux, Canton de Vaud, Switzerland"}
            (format-movie "Yes: Live at Montreux 2003 (2007) (V)			Montreux, Canton de Vaud, Switzerland")))))
 
+(deftest line-sample-5
+  (testing "That the line is split correctly"
+    (is (= {:name "A Girl Named Sooner"
+            :year "1975"
+            :type "TV"
+            :location "Switzerland County, Indiana, USA"}
+           (format-movie "A Girl Named Sooner (1975) (TV)				Switzerland County, Indiana, USA")))))
+
