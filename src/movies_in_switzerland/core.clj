@@ -27,12 +27,13 @@
 
 (def movie-parser
   (insta/parser
-   "line = name year series? type? location?
+   "line = name year series? type? location? meta-info?
     name = <'\"'?>#'(\\s?[a-zA-Z0-9\\-:]+)+'<'\"'?><#'\\s+'?>
     year = <'('>#'[0-9]{4}'<')'><#'\\s+'?>
     series = <'{'>#'[a-zA-Z0-9-:()#. ]+'<'}'><#'\\s+'?>
     type = <'('>('V'|'TV')<')'><#'\\s+'?>
-    location = #'[a-zA-Z0-9, ]+'"
+    location = #'[a-zA-Z0-9,\\- ]+'<#'\\s+'?>
+    meta-info = <'('>#'[a-zA-Z0-9 ]+'<')'>"
    :output-format :hiccup))
 
 (defn format-movie

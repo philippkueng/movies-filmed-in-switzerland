@@ -39,3 +39,13 @@
             :series "Bis in den Tod (#1.6)"
             :location "Switzerland"}
            (format-movie "\"8x45 - Austria Mystery\" (2006) {Bis in den Tod (#1.6)}\tSwitzerland")))))
+
+(deftest line-sample-7
+  (testing "That the line is split correctly"
+    (is (= {:name "Anthony Bourdain: No Reservations"
+            :year "2005"
+            :series "Vietnam: The Island of Mr. Sang (#1.4)"
+            :location "Swiss Alps, Switzerland"
+            :meta-info "archive footage"}
+           (format-movie "\"Anthony Bourdain: No Reservations\" (2005) {Vietnam: The Island of Mr. Sang (#1.4)}\tSwiss Alps, Switzerland\t(archive footage)")))))
+
