@@ -49,3 +49,10 @@
             :meta-info "archive footage"}
            (format-movie "\"Anthony Bourdain: No Reservations\" (2005) {Vietnam: The Island of Mr. Sang (#1.4)}\tSwiss Alps, Switzerland\t(archive footage)")))))
 
+(deftest line-sample-8
+  (testing "That the line is split correctly"
+    (is (= {:name "Bilderbuch Deutschland"
+            :year "1996"
+            :series "Am Schweizer Bodensee"
+            :location "St. Gallen, Kanton St. Gallen, Switzerland"}
+           (format-movie "\"Bilderbuch Deutschland\" (1996) {Am Schweizer Bodensee}\tSt. Gallen, Kanton St. Gallen, Switzerland")))))
