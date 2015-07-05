@@ -64,3 +64,10 @@
             :series "Zermatt, Switzerland (#6.3)"
             :location "Zermatt, Kanton Wallis, Switzerland"}
            (format-movie "\"Coach Trip\" (2005) {Zermatt, Switzerland (#6.3)}\tZermatt, Kanton Wallis, Switzerland")))))
+
+(deftest line-sample-10
+  (testing "That the line is split correctly"
+    (is (= {:name "Das Experiment - Wo ist dein Limit?"
+            :year "2013"
+            :location "Switzerland"}
+           (format-movie "\"Das Experiment - Wo ist dein Limit?\" (2013)\t\tSwitzerland")))))
