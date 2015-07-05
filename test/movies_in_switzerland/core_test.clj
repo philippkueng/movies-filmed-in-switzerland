@@ -56,3 +56,11 @@
             :series "Am Schweizer Bodensee"
             :location "St. Gallen, Kanton St. Gallen, Switzerland"}
            (format-movie "\"Bilderbuch Deutschland\" (1996) {Am Schweizer Bodensee}\tSt. Gallen, Kanton St. Gallen, Switzerland")))))
+
+(deftest line-sample-9
+  (testing "That the line is split correctly"
+    (is (= {:name "Coach Trip"
+            :year "2005"
+            :series "Zermatt, Switzerland (#6.3)"
+            :location "Zermatt, Kanton Wallis, Switzerland"}
+           (format-movie "\"Coach Trip\" (2005) {Zermatt, Switzerland (#6.3)}\tZermatt, Kanton Wallis, Switzerland")))))
