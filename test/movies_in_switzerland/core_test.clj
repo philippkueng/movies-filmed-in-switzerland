@@ -32,3 +32,10 @@
             :location "Switzerland County, Indiana, USA"}
            (format-movie "A Girl Named Sooner (1975) (TV)				Switzerland County, Indiana, USA")))))
 
+(deftest line-sample-6
+  (testing "That the line is split correctly"
+    (is (= {:name "8x45 - Austria Mystery"
+            :year "2006"
+            :series "Bis in den Tod (#1.6)"
+            :location "Switzerland"}
+           (format-movie "\"8x45 - Austria Mystery\" (2006) {Bis in den Tod (#1.6)}\tSwitzerland")))))
