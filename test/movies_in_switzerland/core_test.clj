@@ -71,3 +71,10 @@
             :year "2013"
             :location "Switzerland"}
            (format-movie "\"Das Experiment - Wo ist dein Limit?\" (2013)\t\tSwitzerland")))))
+
+(deftest line-sample-11
+  (testing "That the line is split correctly"
+    (is (= {:name "Absinthe"
+            :year "2010"
+            :location "Switzerland"}
+           (format-movie "Absinthe (2010/I)\t\t\t\t\tSwitzerland")))))
