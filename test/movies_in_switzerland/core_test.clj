@@ -46,7 +46,7 @@
             :year "2005"
             :series "Vietnam: The Island of Mr. Sang (#1.4)"
             :location "Swiss Alps, Switzerland"
-            :meta-info "archive footage"}
+            :meta-info "(archive footage)"}
            (format-movie "\"Anthony Bourdain: No Reservations\" (2005) {Vietnam: The Island of Mr. Sang (#1.4)}\tSwiss Alps, Switzerland\t(archive footage)")))))
 
 (deftest line-sample-8
