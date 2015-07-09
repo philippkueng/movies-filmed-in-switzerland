@@ -83,5 +83,6 @@
   (testing "That the line is split correctly"
     (is (= {:name "Bachna Ae Haseeno"
             :year "2008"
-            :location "Switzerland"}
+            :location "Switzerland"
+            :meta-info "(\"Mahi - 1996\" storyline)"}
            (format-movie "Bachna Ae Haseeno (2008)\t\t\t\tSwitzerland\t(\"Mahi - 1996\" storyline)")))))
