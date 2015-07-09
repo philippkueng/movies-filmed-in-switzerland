@@ -46,8 +46,6 @@
        rest
        (into {})))
 
-  "Turns a line entry into a map"
-  (into {} (rest (movie-parser line))))
 
 
 ;; make a location request against yahoo's yql service
