@@ -29,15 +29,23 @@
   (insta/parser
    "line = name year series? type? location? meta-info?
     name = <'\"'?>#'(\\s?[\\p{L}0-9\\-\\?\\!\\%\\&\\'\\,\\.:]+)+'<'\"'?><#'\\s+'?>
-    series = <'{'>#'[\\p{L}0-9-:()#\\.\\,\\'\\!\\?\\/ ]+'<'}'><#'\\s+'?>
     year = <'('>(#'[0-9]{4}'<#'[\\/\\p{L}]+'?>|#'\\?{4,5}')<')'><#'\\s+'?>
+    series = <'{'><'{'?>#'[\\p{L}0-9-:()#\\.\\,\\'\\!\\?\\/ ]+'<'}'><'}'?><#'\\s+'?>
     type = <'('>('V'|'TV')<')'><#'\\s+'?>
     location = #'[\\p{L}0-9,\\-\\.\\'\\! ]+'<#'\\s+'?>
-    meta-info = <'('>#'[\\p{L}0-9\\:\\'\\,\\-\\.\\[\\] ]+'<')'>"
+    meta-info = ('('#'[\\p{L}0-9\\:\\'\\,\\-\\.\\[\\]\" ]+'')')*"
    :output-format :hiccup))
 
 (defn format-movie
   [line]
+  "Turns a line entry into a parsed map"
+  (->> line
+       movie-parser
+       (insta/transform {:meta-info (fn [& args]
+                                      [:meta-info (apply str args)])})
+       rest
+       (into {})))
+
   "Turns a line entry into a map"
   (into {} (rest (movie-parser line))))
 
