@@ -16,6 +16,15 @@
             :location "Gstaad, Kanton Bern, Switzerland"}
            (format-movie "Yaraana (1995)						Gstaad, Kanton Bern, Switzerland")))))
 
+(deftest line-sample-3
+  (testing "That the line is split correctly"
+    (is (= {:name "Yes: Live at Montreux 2003"
+            :year "2007"
+            :type "V"
+            :location "Montreux, Canton de Vaud, Switzerland"
+            :meta-info "(Montreux Jazz Festival)"}
+           (format-movie "Yes: Live at Montreux 2003 (2007) (V)			Montreux, Canton de Vaud, Switzerland	(Montreux Jazz Festival)")))))
+
 (deftest line-sample-4
   (testing "That the line is split correctly"
     (is (= {:name "Yes: Live at Montreux 2003"
