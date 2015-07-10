@@ -86,3 +86,12 @@
             :location "Switzerland"
             :meta-info "(\"Mahi - 1996\" storyline)"}
            (format-movie "Bachna Ae Haseeno (2008)\t\t\t\tSwitzerland\t(\"Mahi - 1996\" storyline)")))))
+
+(deftest line-sample-13
+  (testing "That the line is split correctly"
+    (is (= {:name "The Amazing Race"
+            :year "2001"
+            :location "Grindelwald, Kanton Bern, Switzerland"
+            :series "This Is More Important Than Your Pants Falling Down! (#3.8)"
+            :meta-info "(field) (roadblock)"}
+           (format-movie "\"The Amazing Race\" (2001) {This Is More Important Than Your Pants Falling Down! (#3.8)}\tGrindelwald, Kanton Bern, Switzerland\t(field) (roadblock)")))))
