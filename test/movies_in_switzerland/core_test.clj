@@ -104,3 +104,17 @@
             :series "This Is More Important Than Your Pants Falling Down! (#3.8)"
             :meta-info "(field) (roadblock)"}
            (format-movie "\"The Amazing Race\" (2001) {This Is More Important Than Your Pants Falling Down! (#3.8)}\tGrindelwald, Kanton Bern, Switzerland\t(field) (roadblock)")))))
+
+(deftest line-sample-14
+  (testing "That the line is split correctly"
+    (is (= {:name "Sauve qui peut (la vie)"
+            :year "1980"
+            :location "Lausanne, Canton de Vaud, Switzerland"}
+           (format-movie "Sauve qui peut (la vie) (1980)\t\t\t\tLausanne, Canton de Vaud, Switzerland")))))
+
+(deftest line-sample-15
+  (testing "That the line is split correctly"
+    (is (= {:name "JLG\\Pg"
+            :year "2008"
+            :location "Rolle, Canton de Vaud, Switzerland"}
+           (format-movie "JLG\\Pg (2008)\t\t\t\t\t\tRolle, Canton de Vaud, Switzerland")))))
