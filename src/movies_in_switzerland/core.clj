@@ -36,12 +36,24 @@
     meta-info = ('('#'[\\p{L}0-9\\:\\'\\,\\-\\.\\[\\]\"\\/\\& ]+'')'#'\\s'?)*"
    :output-format :hiccup))
 
+(defn fix-whitespace-with-openingbrackets
+  [args]
+  (->> args
+       (map #(if (= % "(")
+               " ("
+               %))
+       vec))
+
 (defn format-movie
   [line]
   "Turns a line entry into a parsed map"
   (->> line
        movie-parser
-       (insta/transform {:meta-info (fn [& args]
+       (insta/transform {:name (fn [& args]
+                                 [:name (->> args
+                                             fix-whitespace-with-openingbrackets
+                                             (apply str))])
+                         :meta-info (fn [& args]
                                       [:meta-info (apply str args)])})
        rest
        (into {})))
