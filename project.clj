@@ -7,4 +7,5 @@
                  [clj-http "1.0.1"]
                  [cheshire "5.4.0"]
                  [com.cemerick/url "0.1.1"]
-                 [instaparse "1.4.1"]])
+                 [instaparse "1.4.1"]
+                 [org.clojure/data.csv "0.1.2"]])
