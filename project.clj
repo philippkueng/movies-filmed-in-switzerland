@@ -7,6 +7,7 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "0.0-3297"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [reagent "0.5.0"]
                  [clj-http "1.0.1"]
                  [cheshire "5.4.0"]
                  [com.cemerick/url "0.1.1"]
