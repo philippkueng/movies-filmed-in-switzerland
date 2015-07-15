@@ -142,6 +142,15 @@
 
 #_ (enrich)
 
+;; read the edn file, strip out the unnecessary keys and save as json
+(defn convert-edn-to-json
+  []
+  (->> (-> "movie-year-location.edn"
+           slurp
+           read-string
+           (generate-string {:escape-non-ascii true}))
+       (spit "movie-year-location.json")))
+
 ;; url encode the location data
 #_(fetch-geo-data "Siebnen, Switzerland")
 
