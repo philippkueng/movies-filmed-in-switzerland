@@ -143,11 +143,17 @@
 #_ (enrich)
 
 ;; read the edn file, strip out the unnecessary keys and save as json
+(defn filter-switzerland
+  [movies]
+  (filter #(= (:country %) "Switzerland")
+          movies))
+
 (defn convert-edn-to-json
   []
   (->> (-> "movie-year-location.edn"
            slurp
            read-string
+           filter-switzerland
            (generate-string {:escape-non-ascii true}))
        (spit "movie-year-location.json")))
 
