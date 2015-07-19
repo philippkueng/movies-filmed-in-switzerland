@@ -45,7 +45,8 @@
   (testing "That the line is split correctly"
     (is (= {:name "8x45 - Austria Mystery"
             :year "2006"
-            :series "Bis in den Tod (#1.6)"
+            :series_name "Bis in den Tod"
+            :series_number "1.6"
             :location "Switzerland"}
            (format-movie "\"8x45 - Austria Mystery\" (2006) {Bis in den Tod (#1.6)}\tSwitzerland")))))
 
@@ -53,7 +54,8 @@
   (testing "That the line is split correctly"
     (is (= {:name "Anthony Bourdain: No Reservations"
             :year "2005"
-            :series "Vietnam: The Island of Mr. Sang (#1.4)"
+            :series_name "Vietnam: The Island of Mr. Sang"
+            :series_number "1.4"
             :location "Swiss Alps, Switzerland"
             :meta-info "(archive footage)"}
            (format-movie "\"Anthony Bourdain: No Reservations\" (2005) {Vietnam: The Island of Mr. Sang (#1.4)}\tSwiss Alps, Switzerland\t(archive footage)")))))
@@ -62,7 +64,8 @@
   (testing "That the line is split correctly"
     (is (= {:name "Bilderbuch Deutschland"
             :year "1996"
-            :series "Am Schweizer Bodensee"
+            :series_name "Am Schweizer Bodensee"
+            :series_number nil
             :location "St. Gallen, Kanton St. Gallen, Switzerland"}
            (format-movie "\"Bilderbuch Deutschland\" (1996) {Am Schweizer Bodensee}\tSt. Gallen, Kanton St. Gallen, Switzerland")))))
 
@@ -70,7 +73,8 @@
   (testing "That the line is split correctly"
     (is (= {:name "Coach Trip"
             :year "2005"
-            :series "Zermatt, Switzerland (#6.3)"
+            :series_name "Zermatt, Switzerland"
+            :series_number "6.3"
             :location "Zermatt, Kanton Wallis, Switzerland"}
            (format-movie "\"Coach Trip\" (2005) {Zermatt, Switzerland (#6.3)}\tZermatt, Kanton Wallis, Switzerland")))))
 
@@ -101,7 +105,8 @@
     (is (= {:name "The Amazing Race"
             :year "2001"
             :location "Grindelwald, Kanton Bern, Switzerland"
-            :series "This Is More Important Than Your Pants Falling Down! (#3.8)"
+            :series_name "This Is More Important Than Your Pants Falling Down!"
+            :series_number "3.8"
             :meta-info "(field) (roadblock)"}
            (format-movie "\"The Amazing Race\" (2001) {This Is More Important Than Your Pants Falling Down! (#3.8)}\tGrindelwald, Kanton Bern, Switzerland\t(field) (roadblock)")))))
 
