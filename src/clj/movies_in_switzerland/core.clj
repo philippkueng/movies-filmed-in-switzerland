@@ -27,7 +27,9 @@
    "line = name year series? type? location? meta-info?
     name = (<'\"'?>'('?#'(\\s?[\\p{L}0-9\\-\\/\\?\\!\\%\\&\\'\\,\\.:\\\\]+)+'')'?<'\"'?><#'\\s+'?>)*
     year = <'('>(#'[0-9]{4}'<#'[\\/\\p{L}]+'?>|#'\\?{4,5}')<')'><#'\\s+'?>
-    series = <'{'><'{'?>#'[\\p{L}0-9-:()#\\.\\,\\'\\!\\?\\/ ]+'<'}'><'}'?><#'\\s+'?>
+    series = <'{'><'{'?>series_name series_number?<'}'><'}'?><#'\\s+'?>
+    series_name = #'(\\s?[\\p{L}0-9-:#\\.\\,\\'\\!\\?\\/]+)+'<#'\\s+'?>
+    series_number = <'('><'#'>#'[0-9\\.]+'<')'>
     type = <'('>('V'|'TV'|'VG')<')'><#'\\s+'?>
     location = #'[\\p{L}0-9,\\-\\.\\'\\! ]+'<#'\\s+'?>
     meta-info = ('('#'[\\p{L}0-9\\:\\'\\,\\-\\.\\[\\]\"\\/\\& ]+'')'#'\\s'?)*"
@@ -51,7 +53,9 @@
                                              fix-whitespace-with-openingbrackets
                                              (apply str))])
                          :meta-info (fn [& args]
-                                      [:meta-info (apply str args)])})
+                                      [:meta-info (apply str args)])
+                         :series (fn [& args]
+                                   (into {} args))})
        rest
        (into {})))
 
