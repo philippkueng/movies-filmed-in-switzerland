@@ -65,7 +65,6 @@
     (is (= {:name "Bilderbuch Deutschland"
             :year "1996"
             :series_name "Am Schweizer Bodensee"
-            :series_number nil
             :location "St. Gallen, Kanton St. Gallen, Switzerland"}
            (format-movie "\"Bilderbuch Deutschland\" (1996) {Am Schweizer Bodensee}\tSt. Gallen, Kanton St. Gallen, Switzerland")))))
 
