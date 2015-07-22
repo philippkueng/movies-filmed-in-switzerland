@@ -5,7 +5,9 @@
             [instaparse.core :as insta]
             [clj-http.client :as client]
             [cheshire.core :refer :all]
-            [cemerick.url :refer (url url-encode)]))
+            [cemerick.url :refer (url url-encode)]
+            [clojure.data.csv :as csv]
+            [clojure.java.io :as io]))
 
 (defn write-to-file! [file-name data]
   (with-open [w (clojure.java.io/writer file-name :encoding "UTF-8")]
@@ -160,6 +162,30 @@
            filter-switzerland
            (generate-string {:escape-non-ascii true}))
        (spit "movie-year-location.json")))
+(defn select-values [map ks]
+         (reduce #(conj %1 (map %2)) [] ks))
+
+#_(with-open [out-file (io/writer "movie-year-location.csv")]
+    (csv/write-csv out-file
+                   (let [m (->> "movie-year-location.edn"
+                                slurp
+                                read-string
+                                filter-switzerland)
+                         h (-> m
+                               first
+                               keys
+                               vec)]
+                     (cons (map #(name %) h)
+                           (->> m
+                                (map (fn [line]
+                                       (-> line
+                                           (select-values h)
+                                           vec)))
+                                vec)))
+                   :separator \;
+                   :quote \"
+                   :quote? (fn [items] true)))
+
 
 ;; url encode the location data
 #_(fetch-geo-data "Siebnen, Switzerland")
