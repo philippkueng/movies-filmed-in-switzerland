@@ -1,0 +1,26 @@
+{
+  "name": "movies-in-switzerland",
+  "version": "1.0.0",
+  "description": "[![Circle CI](https://circleci.com/gh/philippkueng/movies-filmed-in-switzerland.svg?style=svg)](https://circleci.com/gh/philippkueng/movies-filmed-in-switzerland)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philippkueng/movies-filmed-in-switzerland.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philippkueng/movies-filmed-in-switzerland/issues"
+  },
+  "homepage": "https://github.com/philippkueng/movies-filmed-in-switzerland",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}
